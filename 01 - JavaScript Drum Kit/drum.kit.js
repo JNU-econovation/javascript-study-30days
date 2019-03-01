@@ -3,7 +3,6 @@ function playSound(e){
 	if(!audio) return; // stop the function from running all together
 	audio.currentTime = 0; // rewind to the start
 	audio.play();
-	animateKey(e);
 }
 
 function animateKey(e){
@@ -17,8 +16,13 @@ function removeTransition(e) {
 }
 
 function setDrumKit(){ // complie error, need to make a function for it
-	window.addEventListener('keydown', playSound);
+	window.addEventListener('keydown', pressDrumKey);
 	addKeyEventListener();
+}
+
+function pressDrumKey(e){
+	playSound(e);
+	animateKey(e);
 }
 
 function addKeyEventListener() {
