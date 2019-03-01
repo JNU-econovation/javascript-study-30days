@@ -1,13 +1,13 @@
 function addKeyDownEvent(){
-    window.addEventListener('keydown', bang);
+    window.addEventListener('keydown', playDrum);
 }
 
-function bang(e){
-    bangDrum(e);
-    bangView(e);
+function playDrum(e){
+    hitDrum(e);
+    changeView(e);
 }
 
-function bangDrum(e){
+function hitDrum(e){
     var audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     if(!audio){
         return;
@@ -16,12 +16,12 @@ function bangDrum(e){
     audio.play();
 }
 
-function bangView(e){
+function changeView(e){
     var key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
     key.classList.add('playing');
 }
 
-function addTranEndEvent(){
+function addTransitionEndEvent(){
     var keys = document.querySelectorAll('.key');
     keys.forEach(key => key.addEventListener('transitionend',removeTransition))
 }
