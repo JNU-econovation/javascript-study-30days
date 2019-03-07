@@ -12,6 +12,6 @@ function setDate() {
     const hoursDegrees = ((hours / 12) * 360)
 
     $(".second-hand").style.transform = `rotate(${secondsDegrees}deg)`;
-    $(".minute-hand").style.transform = `rotate(${minutesDegrees}deg)`;
+    $(".min-hand").style.transform = `rotate(${minutesDegrees}deg)`;
     $(".hour-hand").style.transform = `rotate(${hoursDegrees}deg)`;
 }
