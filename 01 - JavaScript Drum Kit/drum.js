@@ -31,5 +31,6 @@ function returnKeys(e) {
     if(e.propertyName != 'transform') {
         return false;
     }
+    console.log(this);
     this.classList.remove('playing');
 }
