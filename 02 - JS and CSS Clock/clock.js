@@ -1,3 +1,5 @@
+setInterval(setDate, 1000);
+
 function $(component) {
     return document.querySelector(component);
 }
