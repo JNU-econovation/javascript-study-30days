@@ -1,40 +1,28 @@
-window.onkeyup = function(e) {
-    var key = e.keyCode ? e.keyCode : e.which;
-    var clap = new Audio('sounds/clap.wav');
-    var hihat = new Audio('sounds/hihat.wav');
-    var kick = new Audio('sounds/kick.wav');
-    var openhat = new Audio('sounds/openhat.wav');
-    var boom = new Audio('sounds/boom.wav');
-    var ride = new Audio('sounds/ride.wav');
-    var snare = new Audio('sounds/snare.wav');
-    var tom = new Audio('sounds/tom.wav');
-    var tink = new Audio('sounds/tink.wav');
- 
-    if (key == 65) {
-        clap.play();
+function getAudio(e) {
+    return document.querySelector(`audio[data-key="${e.keyCode}"]`);
+}
+function getKey(e) {
+    return document.querySelector(`.key[data-key="${e.keyCode}"]`);
+}
+
+function initiateDrum(){
+    var keys = document.querySelectorAll('.key');
+    window.addEventListener('keydown', playDrum);
+    keys.forEach(key => key.addEventListener('transitionend', endTransition));
+}
+
+function playDrum(e){
+    if(!getAudio(e)){
+        return -1;
     }
-    else if (key == 83) {
-        hihat.play();
-    }
-    else if (key == 68) {
-        kick.play();
-    }
-    else if (key == 70) {
-        openhat.play();
-    }
-    else if (key == 71) {
-        boom.play(); 
-    }
-    else if (key == 72) {
-        ride.play();
-    }
-    else if (key == 74) {
-        snare.play();
-    }
-    else if (key == 75) {
-        tom.play();
-    }
-    else if (key == 76) {
-        tink.play();
-    }
- }
+    getKey(e).classList.add('playing');
+    getAudio(e).currentTime = 0; // 재생 시간 처음으로 돌리기
+    getAudio(e).play();
+}
+
+function endTransition(e){
+    if(e.propertyName != 'transform') {
+        return -1;
+    } 
+    this.classList.remove('playing');
+}
