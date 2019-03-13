@@ -2,13 +2,13 @@ const initialize = () => {
     bindEventListener();
 }
 
-const beatDrum = (e) => {
-    playSound(e);
-    addTransition(e);
+const beatDrum = (event) => {
+    playSound(event);
+    addTransition(event);
 }
 
-const playSound = (e) => {
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"`)    
+const playSound = (event) => {
+    const audio = document.querySelector(`audio[data-key="${event.keyCode}"`)    
     
     if(!audio)
         return;
@@ -17,13 +17,13 @@ const playSound = (e) => {
     audio.play();
 }
 
-const addTransition = (e) => {
-    const key = document.querySelector(`.key[data-key="${e.keyCode}"`)    
+const addTransition = (event) => {
+    const key = document.querySelector(`.key[data-key="${event.keyCode}"`)    
     key.classList.add('playing');
 }
 
-const removeTransition = function (e){
-    if(e.propertyName !== 'transform')
+const removeTransition = function (event){
+    if(event.propertyName !== 'transform')
         return;
         
     this.classList.remove('playing');
