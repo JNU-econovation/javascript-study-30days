@@ -5,13 +5,13 @@
 :root {
     --baseColor: #ffc600;
     --spacing: 10px;
-    --blurValue: 10px;
+    --blur: 10px;
 }
 
 img {
     padding: var(--spacing);
     background-color: var(--baseColor);
-    filter: blur(var(--blurValue));
+    filter: blur(var(--blur));
 }
 
 .hl {
