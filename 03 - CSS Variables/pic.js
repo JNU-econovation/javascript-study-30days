@@ -6,6 +6,6 @@ function run() {
 }
 
 function handleUpdate() {
-    const suffix = this.dataset.sizing || '';
-    document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+    const picSizing = this.dataset.sizing || '';
+    document.documentElement.style.setProperty(`--${this.name}`, this.value + picSizing);
 }
