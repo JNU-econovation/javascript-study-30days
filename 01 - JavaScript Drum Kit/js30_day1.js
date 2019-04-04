@@ -22,7 +22,7 @@ function removeTransition(e) {
     e.target.classList.remove('playing'); 
     stopSound();
 }
-function init(){
+function base(){
     stopSound();
     addKeydown();
 }
